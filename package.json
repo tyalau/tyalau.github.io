@@ -11,6 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,css,scss,md,json}\"",
     "prepare": "husky"
   },
   "dependencies": {
@@ -22,12 +23,14 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.3",
     "husky": "^9.1.7",
+    "prettier": "^3.6.2",
     "typescript": "^5"
   }
 }
