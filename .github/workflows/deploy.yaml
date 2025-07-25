@@ -11,6 +11,14 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  HUSKY: 0
+  NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_TOKEN }}
+  NEXT_PUBLIC_GITHUB_USERNAME: ${{ vars.NEXT_PUBLIC_GITHUB_USERNAME }}
+  NEXT_PUBLIC_LINKEDIN_USERNAME: ${{ vars.NEXT_PUBLIC_LINKEDIN_USERNAME }}
+  NEXT_PUBLIC_MEDIUM_USERNAME: ${{ vars.NEXT_PUBLIC_MEDIUM_USERNAME }}
+  NEXT_PUBLIC_PROFILE_DATA_URL: ${{ vars.NEXT_PUBLIC_PROFILE_DATA_URL }}
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
