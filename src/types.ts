@@ -45,3 +45,8 @@ export type Repo = {
   language: string | null
   homepage: string | null
 }
+
+export type Blog = {
+  title: string
+  link: string
+}
