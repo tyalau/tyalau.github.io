@@ -7,7 +7,7 @@ export default async function IntroSection({ name, headline, location, about }: 
     <Stack alignItems="center" spacing={1} textAlign="center">
       <Typography variant="h5">Hello World!</Typography>
       <Typography variant="h3">
-        I'm&nbsp;
+        I&apos;m&nbsp;
         <Typography component="span" variant="h3" className="gradient-text">
           {name}
         </Typography>
