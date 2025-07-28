@@ -13,6 +13,12 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@mui/material/Chip' {
+  interface ChipPropsColorOverrides {
+    accent: true
+  }
+}
+
 const baloo2 = Baloo_2({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
@@ -49,6 +55,13 @@ const theme = createTheme({
         root: {
           borderRadius: 100,
           textTransform: 'none',
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
         },
       },
     },
@@ -117,6 +130,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: baloo2.style.fontFamily,
+    fontSize: 16,
     h4: { fontFamily: headingFontFamily, lineHeight: 'normal' },
     h5: { fontFamily: headingFontFamily, lineHeight: 'normal' },
   },
