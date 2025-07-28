@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { FaCode } from 'react-icons/fa'
 import { HiOutlineExternalLink } from 'react-icons/hi'
+import SectionHeader from '@/components/SectionHeader'
 import { Repo } from '@/types'
 import { getLanguageColour } from '@/utils'
 
@@ -35,11 +36,7 @@ export default async function Projects() {
 
   return (
     <Stack spacing={2}>
-      <div>
-        <Typography variant="h4" className="gradient-text">
-          Open Source Projects
-        </Typography>
-      </div>
+      <SectionHeader>Open Source Projects</SectionHeader>
       <Grid container spacing={2}>
         {featuredProjects.map(({ name, description, svn_url, language, homepage }) => {
           return (

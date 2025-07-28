@@ -1,6 +1,7 @@
 import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import SectionHeader from '@/components/SectionHeader'
 import { TechStack } from '@/types'
 
 type TechStackProps = {
@@ -10,11 +11,7 @@ type TechStackProps = {
 export default async function TechStackSection({ data }: TechStackProps) {
   return (
     <Stack>
-      <div>
-        <Typography variant="h4" className="gradient-text">
-          Tech Stack
-        </Typography>
-      </div>
+      <SectionHeader>Tech Stack</SectionHeader>
       <Stack spacing={2}>
         {data.map(({ group, items }) => (
           <Stack key={group} spacing={1}>

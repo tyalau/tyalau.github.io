@@ -9,6 +9,7 @@ import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { HiOutlineExternalLink } from 'react-icons/hi'
+import SectionHeader from '@/components/SectionHeader'
 import { Experience } from '@/types'
 
 type ExperienceProps = {
@@ -18,11 +19,7 @@ type ExperienceProps = {
 export default async function ExperienceSection({ data }: ExperienceProps) {
   return (
     <Stack>
-      <div>
-        <Typography variant="h4" className="gradient-text">
-          Experience
-        </Typography>
-      </div>
+      <SectionHeader>Experience</SectionHeader>
       <Timeline
         sx={{
           [`& .${timelineOppositeContentClasses.root}`]: {

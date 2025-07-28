@@ -1,5 +1,6 @@
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import SectionHeader from '@/components/SectionHeader'
 import { Education } from '@/types'
 
 type EducationProps = {
@@ -9,11 +10,7 @@ type EducationProps = {
 export default async function EducationSection({ data }: EducationProps) {
   return (
     <Stack>
-      <div>
-        <Typography variant="h4" className="gradient-text">
-          Education
-        </Typography>
-      </div>
+      <SectionHeader>Education</SectionHeader>
       <Stack spacing={2}>
         {data.map(({ school, degree, location, duration }) => (
           <Stack key={school} spacing={1}>

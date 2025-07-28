@@ -1,6 +1,7 @@
 import Link from '@mui/material/Link'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import SectionHeader from '@/components/SectionHeader'
 import { Blog } from '@/types'
 
 export default async function Blogs() {
@@ -14,11 +15,7 @@ export default async function Blogs() {
 
   return (
     <Stack spacing={2}>
-      <div>
-        <Typography variant="h4" className="gradient-text">
-          Blogs
-        </Typography>
-      </div>
+      <SectionHeader>Blogs</SectionHeader>
       <ul>
         {blogs.slice(0, 4).map(({ title, link }) => {
           return (
