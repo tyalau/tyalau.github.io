@@ -1,12 +1,12 @@
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
+import Profile from '@/containers/Profile'
 
 export default async function Home() {
   return (
-    <Container maxWidth="md">
-      <Stack spacing={1}>
-        <Typography variant="h3">tyalau.github.io</Typography>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Stack spacing={4}>
+        <Profile />
       </Stack>
     </Container>
   )
