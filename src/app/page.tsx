@@ -4,8 +4,8 @@ import Profile from '@/containers/Profile'
 
 export default async function Home() {
   return (
-    <Container maxWidth="md">
-      <Stack spacing={1}>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Stack spacing={4}>
         <Profile />
       </Stack>
     </Container>

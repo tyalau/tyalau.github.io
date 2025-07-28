@@ -4,7 +4,7 @@ import { Intro } from '@/types'
 
 export default async function IntroSection({ name, headline, location, about }: Intro) {
   return (
-    <Stack alignItems="center" pt={4} spacing={1} textAlign="center">
+    <Stack alignItems="center" spacing={1} textAlign="center">
       <Typography variant="h5">Hello World!</Typography>
       <Typography variant="h3">
         I'm&nbsp;
