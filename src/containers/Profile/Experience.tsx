@@ -38,7 +38,7 @@ export default async function ExperienceSection({ data }: ExperienceProps) {
       >
         {data.map(({ title, company, duration, location, description }, i) => (
           <TimelineItem key={duration}>
-            <TimelineOppositeContent variant="subtitle1" color="primary" sx={{ display: { xs: 'none', md: 'block' } }}>
+            <TimelineOppositeContent variant="body1" color="primary" sx={{ display: { xs: 'none', md: 'block' } }}>
               {duration}
               <br />
               {location}
