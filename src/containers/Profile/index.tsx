@@ -1,6 +1,7 @@
 import Stack from '@mui/material/Stack'
 import Intro from '@/containers/Profile/Intro'
 import Social from '@/containers/Profile/Social'
+import TechStack from '@/containers/Profile/TechStack'
 import { ProfileData } from '@/types'
 
 export default async function Profile() {
@@ -10,6 +11,7 @@ export default async function Profile() {
     <Stack spacing={4}>
       <Intro {...profileData.intro} />
       <Social />
+      <TechStack data={profileData.techStack} />
     </Stack>
   )
 }
