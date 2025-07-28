@@ -31,3 +31,9 @@ export type ProfileData = {
   experience: Experience[]
   education: Education[]
 }
+
+export type Social = {
+  icon: React.ReactNode
+  name: string
+  url: string
+}

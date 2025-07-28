@@ -1,5 +1,6 @@
 import Stack from '@mui/material/Stack'
 import Intro from '@/containers/Profile/Intro'
+import Social from '@/containers/Profile/Social'
 import { ProfileData } from '@/types'
 
 export default async function Profile() {
@@ -8,6 +9,7 @@ export default async function Profile() {
   return (
     <Stack spacing={4}>
       <Intro {...profileData.intro} />
+      <Social />
     </Stack>
   )
 }
