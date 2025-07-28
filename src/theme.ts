@@ -1,7 +1,7 @@
 'use client'
 
-import { createTheme } from '@mui/material/styles'
-import { Fira_Code, Corinthia } from 'next/font/google'
+import { createTheme, lighten, darken } from '@mui/material/styles'
+import { Baloo_2, Playwrite_US_Modern } from 'next/font/google'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -13,34 +13,68 @@ declare module '@mui/material/styles' {
   }
 }
 
-const firaCode = Fira_Code({
-  weight: ['300', '400', '500', '700'],
+const baloo2 = Baloo_2({
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
 })
 
-const cortinthia = Corinthia({
-  weight: ['400', '700'],
-  subsets: ['latin'],
+const playwrite = Playwrite_US_Modern({
+  weight: ['300', '400'],
   display: 'swap',
 })
 
-const headingFontFamily = cortinthia.style.fontFamily
+const headingFontFamily = playwrite.style.fontFamily
+
+const primaryBase = '#00d3bb'
+
+const secondaryBase = '#f43098'
+
+const accentBase = '#605dff'
 
 const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '.gradient-text': {
+          background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          display: 'inline-block',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 100,
+          textTransform: 'none',
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          marginBottom: '8px !important',
+        },
+      },
+    },
+  },
   palette: {
     mode: 'dark',
     primary: {
-      main: '#605dff',
-      contrastText: '#edf1fe',
+      main: primaryBase,
+      contrastText: '#084d49',
     },
     secondary: {
-      main: '#f43098',
+      main: secondaryBase,
       contrastText: '#f9e4f0',
     },
     accent: {
-      main: '#00d3bb',
-      contrastText: '#084d49',
+      light: lighten(accentBase, 0.2),
+      main: '#605dff',
+      dark: darken(accentBase, 0.2),
+      contrastText: '#edf1fe',
     },
     error: {
       main: '#ff637d',
@@ -82,13 +116,9 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: firaCode.style.fontFamily,
-    h1: { fontFamily: headingFontFamily },
-    h2: { fontFamily: headingFontFamily },
-    h3: { fontFamily: headingFontFamily },
-    h4: { fontFamily: headingFontFamily },
-    h5: { fontFamily: headingFontFamily },
-    h6: { fontFamily: headingFontFamily },
+    fontFamily: baloo2.style.fontFamily,
+    h4: { fontFamily: headingFontFamily, lineHeight: 'normal' },
+    h5: { fontFamily: headingFontFamily, lineHeight: 'normal' },
   },
 })
 
