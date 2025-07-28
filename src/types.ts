@@ -37,3 +37,11 @@ export type Social = {
   name: string
   url: string
 }
+
+export type Repo = {
+  name: string
+  description: string | null
+  svn_url: string
+  language: string | null
+  homepage: string | null
+}
