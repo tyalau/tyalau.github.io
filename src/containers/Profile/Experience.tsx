@@ -16,7 +16,7 @@ type ExperienceProps = {
   data: Experience[]
 }
 
-export default async function ExperienceSection({ data }: ExperienceProps) {
+export default function ExperienceSection({ data }: ExperienceProps) {
   return (
     <Stack>
       <SectionHeader>Experience</SectionHeader>

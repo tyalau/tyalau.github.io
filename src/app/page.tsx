@@ -4,7 +4,7 @@ import Blogs from '@/containers/Blogs'
 import Profile from '@/containers/Profile'
 import Projects from '@/containers/Projects'
 
-export default async function Home() {
+export default function Home() {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Stack spacing={4}>

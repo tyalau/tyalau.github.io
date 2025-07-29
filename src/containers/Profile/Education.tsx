@@ -7,7 +7,7 @@ type EducationProps = {
   data: Education[]
 }
 
-export default async function EducationSection({ data }: EducationProps) {
+export default function EducationSection({ data }: EducationProps) {
   return (
     <Stack>
       <SectionHeader>Education</SectionHeader>

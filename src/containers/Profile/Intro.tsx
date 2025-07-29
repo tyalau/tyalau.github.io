@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { Intro } from '@/types'
 
-export default async function IntroSection({ name, headline, location, about }: Intro) {
+export default function IntroSection({ name, headline, location, about }: Intro) {
   return (
     <Stack alignItems="center" spacing={1} textAlign="center">
       <Typography variant="h5">Hello World!</Typography>

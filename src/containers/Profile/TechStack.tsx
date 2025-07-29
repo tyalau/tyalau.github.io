@@ -8,7 +8,7 @@ type TechStackProps = {
   data: TechStack[]
 }
 
-export default async function TechStackSection({ data }: TechStackProps) {
+export default function TechStackSection({ data }: TechStackProps) {
   return (
     <Stack>
       <SectionHeader>Tech Stack</SectionHeader>

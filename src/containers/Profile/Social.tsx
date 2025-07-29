@@ -21,7 +21,7 @@ const socials: Social[] = [
   },
 ]
 
-export default async function SocialSection() {
+export default function SocialSection() {
   return (
     <Stack direction="row" spacing={1} justifyContent="center">
       {socials.map(({ icon, name, url }) => (
