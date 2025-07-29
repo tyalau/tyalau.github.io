@@ -4,7 +4,7 @@ import { Intro } from '@/types'
 
 export default function IntroSection({ name, headline, location, about }: Intro) {
   return (
-    <Stack alignItems="center" spacing={1} textAlign="center">
+    <Stack component="section" alignItems="center" spacing={1} textAlign="center">
       <Typography variant="h5">Hello World!</Typography>
       <Typography variant="h3">
         I&apos;m&nbsp;

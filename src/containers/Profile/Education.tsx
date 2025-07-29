@@ -9,7 +9,7 @@ type EducationProps = {
 
 export default function EducationSection({ data }: EducationProps) {
   return (
-    <Stack>
+    <Stack component="section">
       <SectionHeader>Education</SectionHeader>
       <Stack spacing={2}>
         {data.map(({ school, degree, location, duration }) => (

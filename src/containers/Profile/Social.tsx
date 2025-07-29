@@ -23,7 +23,7 @@ const socials: Social[] = [
 
 export default function SocialSection() {
   return (
-    <Stack direction="row" spacing={1} justifyContent="center">
+    <Stack component="section" direction="row" spacing={1} justifyContent="center">
       {socials.map(({ icon, name, url }) => (
         <Button key={name} type="button" variant="contained" startIcon={icon} href={url} target="_blank" rel="noopener">
           {name}
