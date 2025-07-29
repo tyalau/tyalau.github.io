@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
@@ -9,21 +9,29 @@ import { scroller } from 'react-scroll'
 
 const sections = ['Tech Stack', 'Experience', 'Projects']
 
-export default function App() {
+export default function NavBar() {
   const [activeTab, setActiveTab] = useState(0)
+  const allowScrollUpdate = useRef(true)
 
-  // Smooth scroll on tab click
   const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
+    allowScrollUpdate.current = false
     setActiveTab(newValue)
+
     scroller.scrollTo(sections[newValue], {
       smooth: true,
       duration: 500,
     })
+
+    // Re-enable scroll detection after scroll animation ends
+    setTimeout(() => {
+      allowScrollUpdate.current = true
+    }, 550)
   }
 
-  // Update active tab on scroll
   useEffect(() => {
     const handleScroll = () => {
+      if (!allowScrollUpdate.current) return
+
       const offsets = sections.map((id) => {
         const el = document.getElementById(id)
         return el ? el.getBoundingClientRect().top - 64 : Infinity
@@ -38,10 +46,7 @@ export default function App() {
 
       if (scrolledToBottom) {
         setActiveTab(sections.length - 1)
-        return
-      }
-
-      if (index !== -1 && index !== activeTab) {
+      } else if (index !== -1 && index !== activeTab) {
         setActiveTab(index)
       }
     }
