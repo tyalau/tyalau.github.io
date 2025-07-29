@@ -1,3 +1,4 @@
+import Projects from '@/containers/Repos/Projects'
 import { Repo } from '@/types'
 
 export default async function Repos() {
@@ -23,5 +24,5 @@ export default async function Repos() {
     return undefined
   }) as Repo[]
 
-  return null
+  return <Projects data={featuredProjects} />
 }
