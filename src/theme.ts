@@ -72,6 +72,25 @@ const theme = createTheme({
         },
       },
     },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
+    MuiTabs: {
+      defaultProps: {
+        slotProps: {
+          indicator: {
+            sx: {
+              background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
+              borderRadius: 10,
+            },
+          },
+        },
+      },
+    },
   },
   palette: {
     mode: 'dark',

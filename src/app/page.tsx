@@ -1,17 +1,19 @@
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
 import Blogs from '@/containers/Blogs'
+import NavBar from '@/containers/NavBar'
 import Profile from '@/containers/Profile'
-import Projects from '@/containers/Projects'
+import Repos from '@/containers/Repos'
 
 export default function Home() {
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Stack spacing={4}>
+    <Stack>
+      <NavBar />
+      <Container component="main" maxWidth="md" sx={{ py: 4, mt: 8, display: 'flex', flexDirection: 'column', gap: 4 }}>
         <Profile />
-        <Projects />
+        <Repos />
         <Blogs />
-      </Stack>
-    </Container>
+      </Container>
+    </Stack>
   )
 }
