@@ -30,7 +30,7 @@ const playwrite = Playwrite_US_Modern({
   display: 'swap',
 })
 
-const headingFontFamily = playwrite.style.fontFamily
+const featureFontFamily = playwrite.style.fontFamily
 
 const primaryBase = '#00d3bb'
 
@@ -47,6 +47,10 @@ const theme = createTheme({
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           display: 'inline-block',
+        },
+        '.feature-font': {
+          fontFamily: `${featureFontFamily} !important`,
+          lineHeight: 'normal !important',
         },
       },
     },
@@ -150,8 +154,8 @@ const theme = createTheme({
   typography: {
     fontFamily: baloo2.style.fontFamily,
     fontSize: 16,
-    h4: { fontFamily: headingFontFamily, lineHeight: 'normal' },
-    h5: { fontFamily: headingFontFamily, lineHeight: 'normal' },
+    h4: { fontFamily: featureFontFamily, lineHeight: 'normal' },
+    h5: { fontFamily: featureFontFamily, lineHeight: 'normal' },
   },
 })
 

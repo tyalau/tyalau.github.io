@@ -6,6 +6,7 @@ import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
+import Stack from '@mui/material/Stack'
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
 import Toolbar from '@mui/material/Toolbar'
@@ -72,7 +73,7 @@ export default function NavBar() {
 
   return (
     <AppBar position="fixed">
-      <Toolbar sx={{ justifyContent: { xs: 'flex-start', sm: 'center' } }}>
+      <Toolbar sx={{ justifyContent: { xs: 'flex-start', sm: 'space-between' } }}>
         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
           <IconButton onClick={handleOpenNavMenu}>
             <HiOutlineMenu />
@@ -96,6 +97,20 @@ export default function NavBar() {
             ))}
           </Menu>
         </Box>
+        <Stack
+          direction="row"
+          sx={{
+            flex: {
+              xs: 1,
+              sm: 0,
+            },
+            justifyContent: 'center',
+          }}
+        >
+          <Typography component="div" variant="body1" pb={0.5} className="feature-font gradient-text">
+            @{process.env.NEXT_PUBLIC_GITHUB_USERNAME}
+          </Typography>
+        </Stack>
         <Tabs
           value={activeTab}
           onChange={(_, value) => handleSectionChange(value)}
