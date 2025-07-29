@@ -18,7 +18,7 @@ type ProjectProps = {
 
 export default function Project({ data }: ProjectProps) {
   return (
-    <ScrollSection header="Open Source Projects" name="Projects">
+    <ScrollSection header="Projects">
       <Grid container spacing={2} mt={2}>
         {data.map(({ name, description, svn_url, language, homepage }) => {
           return (
