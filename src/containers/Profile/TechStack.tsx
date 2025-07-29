@@ -1,17 +1,18 @@
+'use client'
+
 import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import SectionHeader from '@/components/SectionHeader'
+import ScrollSection from '@/components/ScrollSection'
 import { TechStack } from '@/types'
 
 type TechStackProps = {
   data: TechStack[]
 }
 
-export default async function TechStackSection({ data }: TechStackProps) {
+export default function TechStackSection({ data }: TechStackProps) {
   return (
-    <Stack>
-      <SectionHeader>Tech Stack</SectionHeader>
+    <ScrollSection header="Tech Stack">
       <Stack spacing={2}>
         {data.map(({ group, items }) => (
           <Stack key={group} spacing={1}>
@@ -24,6 +25,6 @@ export default async function TechStackSection({ data }: TechStackProps) {
           </Stack>
         ))}
       </Stack>
-    </Stack>
+    </ScrollSection>
   )
 }

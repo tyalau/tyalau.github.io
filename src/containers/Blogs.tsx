@@ -1,6 +1,5 @@
 import Link from '@mui/material/Link'
 import Stack from '@mui/material/Stack'
-import Typography from '@mui/material/Typography'
 import SectionHeader from '@/components/SectionHeader'
 import { Blog } from '@/types'
 
@@ -14,8 +13,8 @@ export default async function Blogs() {
   const blogs: Blog[] = data.items
 
   return (
-    <Stack spacing={2}>
-      <SectionHeader>Blogs</SectionHeader>
+    <Stack component="section" spacing={2}>
+      <SectionHeader>Latest Blogs</SectionHeader>
       <ul>
         {blogs.slice(0, 4).map(({ title, link }) => {
           return (

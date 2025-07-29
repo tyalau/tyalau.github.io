@@ -1,44 +1,26 @@
+'use client'
+
 import Card, { cardClasses } from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { FaCode } from 'react-icons/fa'
 import { HiOutlineExternalLink } from 'react-icons/hi'
-import SectionHeader from '@/components/SectionHeader'
+import ScrollSection from '@/components/ScrollSection'
 import { Repo } from '@/types'
 import { getLanguageColour } from '@/utils'
 
-export default async function Projects() {
-  const res = await fetch(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`, {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
-    },
-  })
+type ProjectProps = {
+  data: Repo[]
+}
 
-  const repos: Repo[] = await res.json()
-
-  const featuredProjects = process.env.NEXT_PUBLIC_FEATURED_PROJECTS.split(',').map((project) => {
-    const featuredProject = repos.find(({ name }) => name === project)
-    if (featuredProject) {
-      return {
-        name: featuredProject.name,
-        description: featuredProject.description,
-        svn_url: featuredProject.svn_url,
-        language: featuredProject.language,
-        homepage: featuredProject.homepage,
-      }
-    }
-    return undefined
-  }) as Repo[]
-
+export default function Project({ data }: ProjectProps) {
   return (
-    <Stack spacing={2}>
-      <SectionHeader>Open Source Projects</SectionHeader>
-      <Grid container spacing={2}>
-        {featuredProjects.map(({ name, description, svn_url, language, homepage }) => {
+    <ScrollSection header="Projects">
+      <Grid container spacing={2} mt={2}>
+        {data.map(({ name, description, svn_url, language, homepage }) => {
           return (
             <Grid
               size={{ xs: 12, sm: 6 }}
@@ -91,6 +73,6 @@ export default async function Projects() {
           )
         })}
       </Grid>
-    </Stack>
+    </ScrollSection>
   )
 }

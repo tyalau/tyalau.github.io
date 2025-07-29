@@ -1,3 +1,5 @@
+'use client'
+
 import Timeline from '@mui/lab/Timeline'
 import TimelineConnector from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
@@ -6,20 +8,18 @@ import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem'
 import TimelineOppositeContent, { timelineOppositeContentClasses } from '@mui/lab/TimelineOppositeContent'
 import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import Button from '@mui/material/Button'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { HiOutlineExternalLink } from 'react-icons/hi'
-import SectionHeader from '@/components/SectionHeader'
+import ScrollSection from '@/components/ScrollSection'
 import { Experience } from '@/types'
 
 type ExperienceProps = {
   data: Experience[]
 }
 
-export default async function ExperienceSection({ data }: ExperienceProps) {
+export default function ExperienceSection({ data }: ExperienceProps) {
   return (
-    <Stack>
-      <SectionHeader>Experience</SectionHeader>
+    <ScrollSection header="Experience">
       <Timeline
         sx={{
           [`& .${timelineOppositeContentClasses.root}`]: {
@@ -82,6 +82,6 @@ export default async function ExperienceSection({ data }: ExperienceProps) {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </Stack>
+    </ScrollSection>
   )
 }
