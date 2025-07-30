@@ -47,6 +47,8 @@ const eslintConfig = [
       'react/no-array-index-key': 'error',
       'react/self-closing-comp': 'error',
       'react/state-in-constructor': 'error',
+
+      'react-hooks/exhaustive-deps': 0,
     },
   }),
 ]
