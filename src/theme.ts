@@ -1,5 +1,6 @@
 'use client'
 
+import type {} from '@mui/lab/themeAugmentation'
 import { createTheme, lighten, darken } from '@mui/material/styles'
 import { Baloo_2, Playwrite_US_Modern } from 'next/font/google'
 
@@ -55,6 +56,9 @@ const theme = createTheme({
       },
     },
     MuiButton: {
+      defaultProps: {
+        variant: 'contained',
+      },
       styleOverrides: {
         root: {
           borderRadius: 100,
@@ -91,6 +95,22 @@ const theme = createTheme({
               background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
               borderRadius: 10,
             },
+          },
+        },
+      },
+    },
+    MuiTimelineOppositeContent: {
+      styleOverrides: {
+        root: {
+          flex: 0.3,
+        },
+      },
+    },
+    MuiTimelineContent: {
+      styleOverrides: {
+        root: {
+          '& ul': {
+            paddingInlineStart: 16,
           },
         },
       },

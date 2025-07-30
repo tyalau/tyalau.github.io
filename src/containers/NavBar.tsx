@@ -72,7 +72,7 @@ export default function NavBar() {
   }, [activeTab])
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" component="nav">
       <Toolbar sx={{ justifyContent: { xs: 'flex-start', sm: 'space-between' } }}>
         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
           <IconButton onClick={handleOpenNavMenu}>

@@ -4,8 +4,8 @@ import Timeline from '@mui/lab/Timeline'
 import TimelineConnector from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
-import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem'
-import TimelineOppositeContent, { timelineOppositeContentClasses } from '@mui/lab/TimelineOppositeContent'
+import TimelineItem from '@mui/lab/TimelineItem'
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -20,19 +20,7 @@ type ExperienceProps = {
 export default function ExperienceSection({ data }: ExperienceProps) {
   return (
     <ScrollSection header="Experience">
-      <Timeline
-        sx={{
-          [`& .${timelineOppositeContentClasses.root}`]: {
-            flex: 0.3,
-          },
-          [`& .${timelineItemClasses.root}::before`]: {
-            display: 'none',
-          },
-          '& ul': {
-            paddingInlineStart: 2,
-          },
-        }}
-      >
+      <Timeline>
         {data.map(({ title, company, duration, location, description }, i) => (
           <TimelineItem key={duration}>
             <TimelineOppositeContent variant="body1" color="primary" sx={{ display: { xs: 'none', md: 'block' } }}>
@@ -71,7 +59,6 @@ export default function ExperienceSection({ data }: ExperienceProps) {
           </TimelineSeparator>
           <TimelineContent>
             <Button
-              variant="contained"
               endIcon={<HiOutlineExternalLink />}
               href={`https://www.linkedin.com/in/${process.env.NEXT_PUBLIC_LINKEDIN_USERNAME}`}
               target="_blank"
