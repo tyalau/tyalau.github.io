@@ -14,7 +14,7 @@ export default async function Blogs() {
 
   return (
     <Stack component="section" spacing={2}>
-      <SectionHeader>Latest Blogs</SectionHeader>
+      <SectionHeader>Latest Blog Posts</SectionHeader>
       <ul>
         {blogs.slice(0, 4).map(({ title, link }) => {
           return (
