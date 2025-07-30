@@ -71,7 +71,6 @@ export default function ExperienceSection({ data }: ExperienceProps) {
           </TimelineSeparator>
           <TimelineContent>
             <Button
-              variant="contained"
               endIcon={<HiOutlineExternalLink />}
               href={`https://www.linkedin.com/in/${process.env.NEXT_PUBLIC_LINKEDIN_USERNAME}`}
               target="_blank"

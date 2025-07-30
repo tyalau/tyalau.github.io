@@ -55,6 +55,9 @@ const theme = createTheme({
       },
     },
     MuiButton: {
+      defaultProps: {
+        variant: 'contained',
+      },
       styleOverrides: {
         root: {
           borderRadius: 100,
