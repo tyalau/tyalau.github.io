@@ -11,7 +11,7 @@ This is my [personal website](https://tyalau.github.io/), built with **Next.js**
 
 - **Profile**: Loaded from a public [GitHub Gist](https://gist.github.com/) and configured via environment variables
 - **Projects**: Fetched from the [GitHub Repos API](https://docs.github.com/en/rest/repos/repos)
-- **Blogs**: Pulled from a [Medium RSS feed](https://help.medium.com/hc/en-us/articles/214874118-Using-RSS-feeds-of-profiles-publications-and-topics)
+- **Blog Posts**: Pulled from a [Medium RSS feed](https://help.medium.com/hc/en-us/articles/214874118-Using-RSS-feeds-of-profiles-publications-and-topics)
 
 ## Features
 
