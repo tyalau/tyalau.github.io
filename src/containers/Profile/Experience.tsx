@@ -8,8 +8,9 @@ import TimelineItem from '@mui/lab/TimelineItem'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import Button from '@mui/material/Button'
+import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { HiOutlineExternalLink } from 'react-icons/hi'
+import { HiLocationMarker, HiOutlineExternalLink } from 'react-icons/hi'
 import ScrollSection from '@/components/ScrollSection'
 import { Experience } from '@/types'
 
@@ -26,7 +27,10 @@ export default function ExperienceSection({ data }: ExperienceProps) {
             <TimelineOppositeContent variant="body1" color="primary" sx={{ display: { xs: 'none', md: 'block' } }}>
               {duration}
               <br />
-              {location}
+              <Stack direction="row" alignItems="center" justifyContent="flex-end" spacing={0.5}>
+                <HiLocationMarker />
+                <Typography>{location}</Typography>
+              </Stack>
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot variant={i === 0 ? 'filled' : 'outlined'} color="primary" />
@@ -39,8 +43,18 @@ export default function ExperienceSection({ data }: ExperienceProps) {
                   {company}
                 </Typography>
               )}
-              <Typography variant="subtitle2" color="textSecondary" sx={{ display: { xs: 'block', md: 'none' } }}>
-                {duration} · {location}
+              <Typography
+                variant="subtitle2"
+                color="textSecondary"
+                component="div"
+                sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}
+              >
+                <div>{duration}</div>
+                <div>·</div>
+                <Stack direction="row" alignItems="center" spacing={0.5}>
+                  <HiLocationMarker />
+                  <Typography variant="body2">{location}</Typography>
+                </Stack>
               </Typography>
               <ul>
                 {description.map((d) => (
@@ -64,7 +78,7 @@ export default function ExperienceSection({ data }: ExperienceProps) {
               target="_blank"
               rel="noopener"
             >
-              View more experience
+              View full experience
             </Button>
           </TimelineContent>
         </TimelineItem>

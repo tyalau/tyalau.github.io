@@ -22,7 +22,6 @@ export type Education = {
   school: string
   degree: string
   location: string
-  duration: string
 }
 
 export type ProfileData = {
