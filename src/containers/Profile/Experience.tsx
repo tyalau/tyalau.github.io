@@ -64,7 +64,7 @@ export default function ExperienceSection({ data }: ExperienceProps) {
               target="_blank"
               rel="noopener"
             >
-              View more experience
+              View full experience
             </Button>
           </TimelineContent>
         </TimelineItem>
