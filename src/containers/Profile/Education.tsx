@@ -12,12 +12,12 @@ export default function EducationSection({ data }: EducationProps) {
     <Stack component="section">
       <SectionHeader>Education</SectionHeader>
       <Stack spacing={2}>
-        {data.map(({ school, degree, location, duration }) => (
+        {data.map(({ school, degree, location }) => (
           <Stack key={school} spacing={1}>
             <Typography variant="h6">{school}</Typography>
             <Typography variant="body1">{degree}</Typography>
             <Typography variant="body1" color="textSecondary">
-              {duration} · {location}
+              {location}
             </Typography>
           </Stack>
         ))}
