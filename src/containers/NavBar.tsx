@@ -15,7 +15,7 @@ import { CgClose } from 'react-icons/cg'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { scroller } from 'react-scroll'
 
-const sections = ['Tech Stack', 'Experience', 'Projects']
+const sections = ['Tech Stack', 'Experience', 'Projects', 'Blog Posts']
 
 export default function NavBar() {
   const [activeTab, setActiveTab] = useState(0)
