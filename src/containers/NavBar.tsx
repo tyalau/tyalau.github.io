@@ -11,6 +11,7 @@ import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
+import { CgClose } from 'react-icons/cg'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { scroller } from 'react-scroll'
 
@@ -19,14 +20,17 @@ const sections = ['Tech Stack', 'Experience', 'Projects']
 export default function NavBar() {
   const [activeTab, setActiveTab] = useState(0)
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const allowScrollUpdate = useRef(true)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
+    setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
+    setIsMobileMenuOpen(false)
   }
 
   const handleSectionChange = (newValue: number) => {
@@ -75,9 +79,7 @@ export default function NavBar() {
     <AppBar position="fixed" component="nav">
       <Toolbar sx={{ justifyContent: { xs: 'flex-start', sm: 'space-between' } }}>
         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-          <IconButton onClick={handleOpenNavMenu}>
-            <HiOutlineMenu />
-          </IconButton>
+          <IconButton onClick={handleOpenNavMenu}>{isMobileMenuOpen ? <CgClose /> : <HiOutlineMenu />}</IconButton>
           <Menu
             anchorEl={anchorElNav}
             open={Boolean(anchorElNav)}
