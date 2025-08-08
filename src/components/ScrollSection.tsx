@@ -1,6 +1,7 @@
+import { forwardRef } from 'react'
 import Stack from '@mui/material/Stack'
 import { Element } from 'react-scroll'
-import SectionHeader from '@/components/SectionHeader'
+import { MotionSectionHeader } from '@/components/withMotion'
 
 type ScrollSectionProps = {
   header: string
@@ -8,13 +9,17 @@ type ScrollSectionProps = {
   children: React.ReactNode
 }
 
-export default function ScrollSection({ children, name, header }: ScrollSectionProps) {
+const ScrollSection = forwardRef<HTMLDivElement, ScrollSectionProps>(({ children, name, header }, ref) => {
   return (
-    <section>
+    <section ref={ref}>
       <Stack component={Element} id={name || header} name={name || header} pt={8} mt={-8}>
-        <SectionHeader>{header}</SectionHeader>
+        <MotionSectionHeader>{header}</MotionSectionHeader>
         {children}
       </Stack>
     </section>
   )
-}
+})
+
+ScrollSection.displayName = 'ScrollSection'
+
+export default ScrollSection
