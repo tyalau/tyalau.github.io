@@ -1,6 +1,8 @@
+'use client'
+
 import Button from '@mui/material/Button'
-import Stack from '@mui/material/Stack'
 import { FaGithub, FaLinkedin, FaMedium } from 'react-icons/fa'
+import { MotionStack } from '@/components/withMotion'
 import { Social } from '@/types'
 
 const socials: Social[] = [
@@ -23,12 +25,12 @@ const socials: Social[] = [
 
 export default function SocialSection() {
   return (
-    <Stack component="section" direction="row" spacing={1} justifyContent="center">
+    <MotionStack component="section" direction="row" spacing={1} justifyContent="center">
       {socials.map(({ icon, name, url }) => (
         <Button key={name} type="button" startIcon={icon} href={url} target="_blank" rel="noopener">
           {name}
         </Button>
       ))}
-    </Stack>
+    </MotionStack>
   )
 }
