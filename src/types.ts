@@ -47,5 +47,7 @@ export type Repo = {
 
 export type Blog = {
   title: string
+  pubDate: string
   link: string
+  description: string
 }
