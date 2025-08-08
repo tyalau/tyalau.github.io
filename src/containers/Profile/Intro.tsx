@@ -1,10 +1,12 @@
-import Stack from '@mui/material/Stack'
+'use client'
+
 import Typography from '@mui/material/Typography'
+import { MotionStack } from '@/components/withMotion'
 import { Intro } from '@/types'
 
 export default function IntroSection({ name, headline, location, about }: Intro) {
   return (
-    <Stack component="section" alignItems="center" spacing={1} textAlign="center">
+    <MotionStack component="section" alignItems="center" spacing={1} textAlign="center">
       <Typography variant="h5">Hello World!</Typography>
       <Typography variant="h3">
         I&apos;m&nbsp;
@@ -20,6 +22,6 @@ export default function IntroSection({ name, headline, location, about }: Intro)
           {item}
         </Typography>
       ))}
-    </Stack>
+    </MotionStack>
   )
 }

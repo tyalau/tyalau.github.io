@@ -9,12 +9,15 @@ import Typography from '@mui/material/Typography'
 import { FaCode } from 'react-icons/fa'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import ScrollSection from '@/components/ScrollSection'
+import withMotion from '@/components/withMotion'
 import { Repo } from '@/types'
 import { getLanguageColour } from '@/utils'
 
 type ProjectProps = {
   data: Repo[]
 }
+
+const MotionCard = withMotion(Card)
 
 export default function Project({ data }: ProjectProps) {
   return (
@@ -35,7 +38,7 @@ export default function Project({ data }: ProjectProps) {
                 },
               }}
             >
-              <Card>
+              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}>
                 <CardContent>
                   <Typography variant="h6" component="div">
                     {name}
@@ -68,7 +71,7 @@ export default function Project({ data }: ProjectProps) {
                     />
                   )}
                 </CardActions>
-              </Card>
+              </MotionCard>
             </Grid>
           )
         })}

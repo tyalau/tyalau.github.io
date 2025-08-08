@@ -12,18 +12,21 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { HiLocationMarker, HiOutlineExternalLink } from 'react-icons/hi'
 import ScrollSection from '@/components/ScrollSection'
+import withMotion from '@/components/withMotion'
 import { Experience } from '@/types'
 
 type ExperienceProps = {
   data: Experience[]
 }
 
+const MotionTimelineItem = withMotion(TimelineItem)
+
 export default function ExperienceSection({ data }: ExperienceProps) {
   return (
     <ScrollSection header="Experience">
       <Timeline>
         {data.map(({ title, company, duration, location, description }, i) => (
-          <TimelineItem key={duration}>
+          <MotionTimelineItem key={duration}>
             <TimelineOppositeContent variant="body1" color="primary" sx={{ display: { xs: 'none', md: 'block' } }}>
               {duration}
               <br />
@@ -64,9 +67,9 @@ export default function ExperienceSection({ data }: ExperienceProps) {
                 ))}
               </ul>
             </TimelineContent>
-          </TimelineItem>
+          </MotionTimelineItem>
         ))}
-        <TimelineItem>
+        <MotionTimelineItem>
           <TimelineOppositeContent sx={{ display: { xs: 'none', md: 'block' } }} />
           <TimelineSeparator>
             <TimelineDot variant="outlined" color="primary" />
@@ -81,7 +84,7 @@ export default function ExperienceSection({ data }: ExperienceProps) {
               View full experience
             </Button>
           </TimelineContent>
-        </TimelineItem>
+        </MotionTimelineItem>
       </Timeline>
     </ScrollSection>
   )
