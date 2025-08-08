@@ -39,6 +39,8 @@ const secondaryBase = '#f43098'
 
 const accentBase = '#605dff'
 
+const defaultBackground = '#1d232a'
+
 const theme = createTheme({
   components: {
     MuiCssBaseline: {
@@ -52,6 +54,9 @@ const theme = createTheme({
         '.feature-font': {
           fontFamily: `${featureFontFamily} !important`,
           lineHeight: 'normal !important',
+        },
+        '.gradient-bg': {
+          background: `linear-gradient(to bottom, ${defaultBackground}, ${darken(defaultBackground, 0.5)})`,
         },
       },
     },
@@ -167,7 +172,7 @@ const theme = createTheme({
     },
     divider: '#ecf9ff1a',
     background: {
-      default: '#1d232a',
+      default: defaultBackground,
       paper: '#191e24',
     },
   },
