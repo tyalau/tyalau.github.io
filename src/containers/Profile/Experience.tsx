@@ -48,7 +48,7 @@ export default function ExperienceSection({ data }: ExperienceProps) {
               )}
               <Typography
                 variant="subtitle2"
-                color="textSecondary"
+                color="primary"
                 component="div"
                 sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}
               >

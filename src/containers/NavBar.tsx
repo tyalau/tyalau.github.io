@@ -109,8 +109,8 @@ export default function NavBar() {
             justifyContent: 'center',
           }}
         >
-          <Typography component="div" variant="body1" pb={0.5} className="feature-font gradient-text">
-            @{process.env.NEXT_PUBLIC_GITHUB_USERNAME}
+          <Typography component="div" variant="body1" pb={0.5} className="feature-font gradient-text" noWrap>
+            &lt;{process.env.NEXT_PUBLIC_GITHUB_USERNAME} /&gt;
           </Typography>
         </Stack>
         <Tabs
