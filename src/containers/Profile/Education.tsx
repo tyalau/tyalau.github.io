@@ -19,7 +19,7 @@ export default function EducationSection({ data }: EducationProps) {
           <MotionStack key={school} spacing={1}>
             <Typography variant="h6">{school}</Typography>
             <Typography variant="body1">{degree}</Typography>
-            <Typography component={Stack} direction="row" alignItems="center" spacing={0.5} variant="body1" color="textSecondary">
+            <Typography component={Stack} direction="row" alignItems="center" spacing={0.5} variant="body1" color="primary">
               <HiLocationMarker />
               <div>{location}</div>
             </Typography>
