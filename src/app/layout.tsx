@@ -1,3 +1,4 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import type { Metadata } from 'next'
@@ -14,12 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   )
