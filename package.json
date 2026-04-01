@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "pnpm exec eslint .",
     "prettier": "prettier --check \"**/*.{js,jsx,mjs,ts,tsx,css,scss,md,json}\"",
     "prettier:fix": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,css,scss,md,json}\"",
     "prepare": "husky"
@@ -21,7 +21,7 @@
     "@mui/lab": "7.0.0-beta.14",
     "@mui/material": "^7.2.0",
     "motion": "^12.23.12",
-    "next": "15.4.9",
+    "next": "16.2.1",
     "node-html-parser": "^7.0.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -29,7 +29,7 @@
     "react-scroll": "^1.9.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
+    "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
@@ -37,10 +37,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-scroll": "^1.8.10",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.6.2",
     "typescript": "^5"
   }
