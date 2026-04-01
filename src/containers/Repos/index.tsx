@@ -3,8 +3,8 @@ import { Repo } from '@/types'
 
 export default async function Repos() {
   const url = new URL(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`)
-  url.searchParams.set('v', Date.now().toString())
   const res = await fetch(url.toString(), {
+    cache: 'no-store',
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
     },
