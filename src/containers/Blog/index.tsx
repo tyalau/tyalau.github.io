@@ -6,7 +6,7 @@ export default async function Blogs() {
   url.searchParams.set('rss_url', `https://medium.com/feed/${process.env.NEXT_PUBLIC_MEDIUM_USERNAME}`)
 
   const res = await fetch(url.toString(), {
-    cache: 'no-store',
+    next: { revalidate: 3600 },
   })
 
   const data = await res.json()

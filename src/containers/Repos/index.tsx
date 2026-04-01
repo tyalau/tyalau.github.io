@@ -4,7 +4,7 @@ import { Repo } from '@/types'
 export default async function Repos() {
   const url = new URL(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`)
   const res = await fetch(url.toString(), {
-    cache: 'no-store',
+    next: { revalidate: 3600 },
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
     },
