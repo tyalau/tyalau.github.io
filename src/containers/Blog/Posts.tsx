@@ -20,7 +20,7 @@ import { Blog } from '@/types'
 import { decodeUnicodeEscapes, formatDate } from '@/utils'
 
 const MotionCard = withMotion(Card)
-const MotionCardMedia = motion(CardMedia)
+const MotionCardMedia = motion.create(CardMedia)
 
 export default function Posts({ data }: { data: Blog[] }) {
   const theme = useTheme()

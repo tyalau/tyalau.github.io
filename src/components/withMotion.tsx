@@ -19,7 +19,7 @@ const defaultMotionProps = {
 }
 
 export default function withMotion<T extends ElementType>(Component: T) {
-  const MotionComponent = motion(Component)
+  const MotionComponent = motion.create(Component)
 
   const WrappedComponent = (props: WithComponentProp<T>) => <MotionComponent {...defaultMotionProps} {...props} />
 
