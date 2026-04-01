@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/config-conventional": "^20.5.0",
     "@eslint/eslintrc": "^3",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/node": "^20",
