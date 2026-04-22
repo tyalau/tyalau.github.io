@@ -21,7 +21,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/lab": "7.0.1-beta.23",
     "@mui/material": "^7.3.9",
-    "@mui/material-nextjs": "^7.3.9",
+    "@mui/material-nextjs": "^9.0.0",
     "motion": "^12.23.12",
     "next": "16.2.3",
     "node-html-parser": "^7.0.1",
