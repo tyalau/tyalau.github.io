@@ -9,3 +9,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "quarterly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+  - package-ecosystem: "github-actions"
+    directory: "/" # Location of workflow files
+    schedule:
+      interval: "quarterly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dev ops"
