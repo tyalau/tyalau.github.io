@@ -22,7 +22,7 @@
     "@mui/lab": "7.0.1-beta.23",
     "@mui/material": "^7.3.9",
     "@mui/material-nextjs": "^9.0.1",
-    "motion": "^12.23.12",
+    "motion": "^12.42.2",
     "next": "16.2.6",
     "node-html-parser": "^7.0.1",
     "react": "19.2.6",
