@@ -19,5 +19,5 @@ jobs:
       - name: Apply labels
         uses: actions/labeler@v7
         with:
-          configuration-path: '.central-config/.github/labeler.yml'
+          configuration-path: ".central-config/.github/labeler.yml"
           sync-labels: true
