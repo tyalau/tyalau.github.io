@@ -20,5 +20,11 @@
     "^[../]",
     "^[./]"
   ],
-  "importOrderCaseInsensitive": true
+  "importOrderCaseInsensitive": true,
+  "overrides": [
+    {
+      "files": ["*.yml", "*.yaml"],
+      "options": { "singleQuote": false }
+    }
+  ]
 }
