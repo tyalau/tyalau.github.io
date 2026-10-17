@@ -5,45 +5,70 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - "**"
+  workflow_dispatch:
 
 env:
   HUSKY: 0
 
+# Cancel superseded runs on PR branches; let runs on main finish
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
 jobs:
-  integration:
-    name: Integration
+  format:
+    name: Prettier
     runs-on: ubuntu-latest
     permissions:
       contents: read
 
     steps:
-      # Checkout the code
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      # Set up pnpm
-      - name: Setup Node.js and pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
+      - name: Setup
+        uses: ./.github/actions/setup
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 26
-          cache: "pnpm"
+      - name: Run Prettier
+        run: pnpm format:check
 
-      # Install dependencies
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
-      # Run prettier
-      - name: Run prettier
-        run: pnpm run prettier
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
-      # Run lint
+      - name: Setup
+        uses: ./.github/actions/setup
+
       - name: Run linter
-        run: pnpm run lint
+        run: pnpm lint
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_TOKEN }}
+      NEXT_PUBLIC_GITHUB_USERNAME: ${{ vars.NEXT_PUBLIC_GITHUB_USERNAME }}
+      NEXT_PUBLIC_LINKEDIN_USERNAME: ${{ vars.NEXT_PUBLIC_LINKEDIN_USERNAME }}
+      NEXT_PUBLIC_MEDIUM_USERNAME: ${{ vars.NEXT_PUBLIC_MEDIUM_USERNAME }}
+      NEXT_PUBLIC_PROFILE_DATA_URL: ${{ vars.NEXT_PUBLIC_PROFILE_DATA_URL }}
+      NEXT_PUBLIC_METADATA_TITLE: ${{ vars.NEXT_PUBLIC_METADATA_TITLE }}
+      NEXT_PUBLIC_METADATA_DESCRIPTION: ${{ vars.NEXT_PUBLIC_METADATA_DESCRIPTION }}
+      NEXT_PUBLIC_FEATURED_PROJECTS: ${{ vars.NEXT_PUBLIC_FEATURED_PROJECTS }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Run build
+        run: pnpm build

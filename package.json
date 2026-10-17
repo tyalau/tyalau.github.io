@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "pnpm exec eslint .",
+    "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,jsx,mjs,ts,tsx,css,scss,md,json,yaml,yml}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,mjs,ts,tsx,css,scss,md,json,yaml,yml}\"",
     "prepare": "husky"
