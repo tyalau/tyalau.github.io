@@ -1,4 +1,4 @@
-import { ChipProps } from '@mui/material'
+import { ChipProps } from '@mui/material/Chip'
 
 export const getLanguageColour = (language: string): ChipProps['color'] => {
   switch (language.toLowerCase()) {
@@ -26,3 +26,6 @@ export const formatDate = (date: string) => {
   }
   return new Date(date).toLocaleDateString('en-US', options)
 }
+
+export const formatMonth = (date: string) =>
+  new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })

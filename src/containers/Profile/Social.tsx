@@ -1,36 +1,50 @@
 'use client'
 
 import Button from '@mui/material/Button'
-import { FaGithub, FaLinkedin, FaMedium } from 'react-icons/fa'
+import { FaGithub, FaGoodreads, FaLinkedin, FaMedium } from 'react-icons/fa'
 import { MotionStack } from '@/components/withMotion'
-import { Social } from '@/types'
+import { SocialLink, SocialPlatform } from '@/types'
 
-const socials: Social[] = [
-  {
+const SOCIAL_PLATFORMS: Record<SocialPlatform, { icon: React.ReactNode; name: string }> = {
+  github: {
     icon: <FaGithub />,
     name: 'GitHub',
-    url: `https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
   },
-  {
+  linkedin: {
     icon: <FaLinkedin />,
     name: 'LinkedIn',
-    url: `https://www.linkedin.com/in/${process.env.NEXT_PUBLIC_LINKEDIN_USERNAME}`,
   },
-  {
+  medium: {
     icon: <FaMedium />,
     name: 'Medium',
-    url: `https://medium.com/${process.env.NEXT_PUBLIC_MEDIUM_USERNAME}`,
   },
-]
+  goodreads: {
+    icon: <FaGoodreads />,
+    name: 'Goodreads',
+  },
+}
 
-export default function SocialSection() {
+type SocialProps = {
+  data: SocialLink[]
+}
+
+export default function SocialSection({ data }: SocialProps) {
   return (
     <MotionStack component="section" direction="row" spacing={1} justifyContent="center">
-      {socials.map(({ icon, name, url }) => (
-        <Button key={name} type="button" startIcon={icon} href={url} target="_blank" rel="noopener">
-          {name}
-        </Button>
-      ))}
+      {data
+        .filter(({ platform }) => platform in SOCIAL_PLATFORMS)
+        .map(({ platform, url }) => (
+          <Button
+            key={platform}
+            type="button"
+            startIcon={SOCIAL_PLATFORMS[platform].icon}
+            href={url}
+            target="_blank"
+            rel="noopener"
+          >
+            {SOCIAL_PLATFORMS[platform].name}
+          </Button>
+        ))}
     </MotionStack>
   )
 }

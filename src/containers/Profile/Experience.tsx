@@ -17,11 +17,12 @@ import { Experience } from '@/types'
 
 type ExperienceProps = {
   data: Experience[]
+  slug: string
 }
 
 const MotionTimelineItem = withMotion(TimelineItem)
 
-export default function ExperienceSection({ data }: ExperienceProps) {
+export default function ExperienceSection({ data, slug }: ExperienceProps) {
   return (
     <ScrollSection header="Experience">
       <Timeline>
@@ -77,7 +78,7 @@ export default function ExperienceSection({ data }: ExperienceProps) {
           <TimelineContent>
             <Button
               endIcon={<HiOutlineExternalLink />}
-              href={`https://www.linkedin.com/in/${process.env.NEXT_PUBLIC_LINKEDIN_USERNAME}`}
+              href={`https://www.linkedin.com/in/${slug}`}
               target="_blank"
               rel="noopener"
             >

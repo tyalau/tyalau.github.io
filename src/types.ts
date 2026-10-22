@@ -18,22 +18,21 @@ export type Experience = {
   description: string[]
 }
 
+export type ExperienceDocument = Omit<Experience, 'duration'> & {
+  startDate: string
+  endDate?: string
+}
+
 export type Education = {
   school: string
   degree: string
   location: string
 }
 
-export type ProfileData = {
-  intro: Intro
-  techStack: TechStack[]
-  experience: Experience[]
-  education: Education[]
-}
+export type SocialPlatform = 'github' | 'linkedin' | 'medium' | 'goodreads'
 
-export type Social = {
-  icon: React.ReactNode
-  name: string
+export type SocialLink = {
+  platform: SocialPlatform
   url: string
 }
 
@@ -50,4 +49,12 @@ export type Blog = {
   pubDate: string
   link: string
   description: string
+}
+
+export type ProfileQueryResult = Intro & {
+  slug: string
+  techStack: TechStack[]
+  socialLinks: SocialLink[]
+  experience: ExperienceDocument[]
+  education: Education[]
 }
