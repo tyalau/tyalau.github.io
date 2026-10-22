@@ -15,9 +15,13 @@ import { CgClose } from 'react-icons/cg'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { scroller } from 'react-scroll'
 
-const sections = ['Tech Stack', 'Experience', 'Projects', 'Blog Posts']
+const sections = ['Tech Stack', 'Experience', 'Projects']
 
-export default function NavBar() {
+type NavBarProps = {
+  slug: string
+}
+
+export default function NavBar({ slug }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(0)
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -110,7 +114,7 @@ export default function NavBar() {
           }}
         >
           <Typography component="div" variant="body1" pb={0.5} className="feature-font gradient-text" noWrap>
-            &lt;{process.env.NEXT_PUBLIC_GITHUB_USERNAME} /&gt;
+            &lt;{slug} /&gt;
           </Typography>
         </Stack>
         <Tabs
