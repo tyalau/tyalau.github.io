@@ -46,7 +46,7 @@ export default function Posts({ data }: { data: Blog[] }) {
                 },
               }}
             >
-              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}>
+              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} whileHover={{ y: -4 }}>
                 <div>
                   {image ? (
                     <Link href={link} color="inherit" target="_blank" rel="noopener">

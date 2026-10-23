@@ -38,14 +38,14 @@ export default function Project({ data }: ProjectProps) {
                 },
               }}
             >
-              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}>
+              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} whileHover={{ y: -4 }}>
                 <CardContent>
                   <Typography variant="h6" component="div">
                     {name}
                   </Typography>
                   {description && <Typography variant="body1">{description}</Typography>}
                 </CardContent>
-                <CardActions>
+                <CardActions sx={{ px: 2, pb: 2, pt: 0, gap: 1, '& > :not(style) ~ :not(style)': { ml: 0 } }}>
                   {language && <Chip label={language} variant="outlined" color={getLanguageColour(language)} />}
                   {svn_url && (
                     <Chip

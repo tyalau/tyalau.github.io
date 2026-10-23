@@ -1,8 +1,8 @@
 'use client'
 
 import type {} from '@mui/lab/themeAugmentation'
-import { createTheme, lighten, darken } from '@mui/material/styles'
-import { Baloo_2, Playwrite_US_Modern } from 'next/font/google'
+import { createTheme, lighten, darken, alpha } from '@mui/material/styles'
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -12,6 +12,16 @@ declare module '@mui/material/styles' {
   interface PaletteOptions {
     accent?: PaletteOptions['primary']
   }
+
+  interface Theme {
+    glow: (color: string, intensity?: number) => string
+    textGlow: (color: string) => string
+  }
+
+  interface ThemeOptions {
+    glow?: (color: string, intensity?: number) => string
+    textGlow?: (color: string) => string
+  }
 }
 
 declare module '@mui/material/Chip' {
@@ -20,28 +30,39 @@ declare module '@mui/material/Chip' {
   }
 }
 
-const baloo2 = Baloo_2({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
-const playwrite = Playwrite_US_Modern({
-  weight: ['300', '400'],
-  display: 'swap',
-})
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], display: 'swap' })
 
-const featureFontFamily = playwrite.style.fontFamily
+const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'], display: 'swap' })
 
-const primaryBase = '#00d3bb'
+const displayFontFamily = spaceGrotesk.style.fontFamily
 
-const secondaryBase = '#f43098'
+const monoFontFamily = jetBrainsMono.style.fontFamily
 
-const accentBase = '#605dff'
+const primaryBase = '#BD93F9'
 
-const defaultBackground = '#1d232a'
+const secondaryBase = '#FF79C6'
+
+const accentBase = '#8BE9FD'
+
+const defaultBackground = '#1E1F29'
+
+const dividerColour = '#44475A'
+
+const darkText = '#282A36'
+
+// Layered box-shadow: tight bright core plus a wide diffuse halo
+const glow = (color: string, intensity = 1) =>
+  `0 0 ${4 * intensity}px ${alpha(color, 0.6)}, 0 0 ${20 * intensity}px ${alpha(color, 0.35)}`
+
+// Layered text-shadow: tight core plus a wide diffuse halo
+const textGlow = (color: string) => `0 0 4px ${alpha(color, 0.7)}, 0 0 16px ${alpha(color, 0.4)}`
 
 const theme = createTheme({
+  cssVariables: true,
+  glow,
+  textGlow,
   components: {
     MuiCssBaseline: {
       styleOverrides: {
@@ -50,9 +71,11 @@ const theme = createTheme({
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           display: 'inline-block',
+          // text-shadow would show through the transparent fill, so glow the clipped glyphs instead
+          filter: `drop-shadow(0 0 8px ${alpha(primaryBase, 0.45)})`,
         },
-        '.feature-font': {
-          fontFamily: `${featureFontFamily} !important`,
+        '.mono-font': {
+          fontFamily: `${monoFontFamily} !important`,
           lineHeight: 'normal !important',
         },
         '.gradient-bg': {
@@ -75,13 +98,15 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 16,
-        },
-      },
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          marginBottom: '8px !important',
+          backgroundImage: 'none',
+          backgroundColor: alpha(dividerColour, 0.4),
+          backdropFilter: 'blur(12px)',
+          border: `1px solid ${alpha(primaryBase, 0.25)}`,
+          transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+          '&:hover': {
+            borderColor: alpha(primaryBase, 0.8),
+            boxShadow: glow(primaryBase),
+          },
         },
       },
     },
@@ -125,62 +150,54 @@ const theme = createTheme({
     mode: 'dark',
     primary: {
       main: primaryBase,
-      contrastText: '#084d49',
+      contrastText: darkText,
     },
     secondary: {
       main: secondaryBase,
-      contrastText: '#f9e4f0',
+      contrastText: darkText,
     },
     accent: {
       light: lighten(accentBase, 0.2),
-      main: '#605dff',
+      main: accentBase,
       dark: darken(accentBase, 0.2),
-      contrastText: '#edf1fe',
+      contrastText: darkText,
     },
     error: {
-      main: '#ff637d',
-      contrastText: '#4d0218',
+      main: '#FF5555',
+      contrastText: darkText,
     },
     warning: {
-      main: '#fcb700',
-      contrastText: '#793205',
+      main: '#FFB86C',
+      contrastText: darkText,
     },
     info: {
-      main: '#00bafe',
-      contrastText: '#042e49',
+      main: '#F1FA8C',
+      contrastText: darkText,
     },
     success: {
-      main: '#00d390',
-      contrastText: '#004c39',
-    },
-    grey: {
-      50: '#fafafa',
-      100: '#f3f4f6',
-      200: '#e5e7eb',
-      300: '#d1d5dc',
-      400: '#94a1b3',
-      500: '#677384',
-      600: '#4a5565',
-      700: '#354151',
-      800: '#1e2939',
-      900: '#101828',
+      main: '#50FA7B',
+      contrastText: darkText,
     },
     text: {
-      primary: '#ecf9ff',
-      secondary: '#ecf9ffb3',
-      disabled: '#ecf9ff33',
+      primary: '#F8F8F2',
+      // Dracula comment (#6272A4) is only ~2.5:1 on paper, so body-secondary text uses a lighter tint of it
+      secondary: '#9AA5CE',
+      disabled: '#6272A4',
     },
-    divider: '#ecf9ff1a',
+    divider: dividerColour,
     background: {
       default: defaultBackground,
-      paper: '#191e24',
+      paper: '#282A36',
     },
   },
   typography: {
-    fontFamily: baloo2.style.fontFamily,
-    fontSize: 16,
-    h4: { fontFamily: featureFontFamily, lineHeight: 'normal' },
-    h5: { fontFamily: featureFontFamily, lineHeight: 'normal' },
+    fontFamily: inter.style.fontFamily,
+    fontSize: 15,
+    h1: { fontFamily: displayFontFamily },
+    h2: { fontFamily: displayFontFamily },
+    h3: { fontFamily: displayFontFamily },
+    h4: { fontFamily: displayFontFamily },
+    h5: { fontFamily: monoFontFamily },
   },
 })
 

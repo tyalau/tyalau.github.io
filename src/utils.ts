@@ -3,15 +3,24 @@ import { ChipProps } from '@mui/material/Chip'
 export const getLanguageColour = (language: string): ChipProps['color'] => {
   switch (language.toLowerCase()) {
     case 'javascript':
-      return 'warning'
-    case 'typescript':
       return 'info'
-    case 'css':
+    case 'typescript':
       return 'accent'
+    case 'css':
+      return 'secondary'
     case 'html':
+      return 'warning'
+    case 'python':
+    case 'shell':
+      return 'success'
+    case 'go':
+      return 'accent'
+    case 'rust':
       return 'error'
+    case 'java':
+      return 'warning'
     default:
-      return 'default'
+      return 'primary'
   }
 }
 
