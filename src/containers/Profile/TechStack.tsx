@@ -18,7 +18,7 @@ export default function TechStackSection({ data }: TechStackProps) {
         {data.map(({ group, items }) => (
           <MotionStack key={group} spacing={1}>
             <Typography variant="h6">{group}</Typography>
-            <Stack direction="row" spacing={0.5} flexWrap="wrap">
+            <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
               {items.map((item) => (
                 <Chip key={item} label={item} variant="outlined" color="primary" />
               ))}

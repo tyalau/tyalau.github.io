@@ -113,7 +113,7 @@ export default function NavBar({ slug }: NavBarProps) {
             justifyContent: 'center',
           }}
         >
-          <Typography component="div" variant="body1" pb={0.5} className="feature-font gradient-text" noWrap>
+          <Typography component="div" variant="body1" pb={0.5} className="mono-font gradient-text" noWrap>
             &lt;{slug} /&gt;
           </Typography>
         </Stack>
