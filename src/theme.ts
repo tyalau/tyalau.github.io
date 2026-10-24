@@ -90,9 +90,6 @@ const theme = createTheme({
           fontFamily: `${monoFontFamily} !important`,
           lineHeight: 'normal !important',
         },
-        '.gradient-bg': {
-          background: `linear-gradient(to bottom, ${defaultBackground}, ${darken(defaultBackground, 0.5)})`,
-        },
       },
     },
     MuiButton: {

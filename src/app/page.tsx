@@ -14,7 +14,7 @@ export default async function Home() {
   if (!githubUsername) throw new Error('siteSettings.githubUsername not found in Sanity')
 
   return (
-    <Stack className="gradient-bg">
+    <Stack>
       <NavBar slug={githubUsername} />
       <Container
         component="main"
