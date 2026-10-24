@@ -66,6 +66,7 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        // Pink-to-purple gradient text with a soft purple glow behind the letters (used for the name and section titles)
         '.gradient-text': {
           background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
           WebkitBackgroundClip: 'text',
@@ -77,6 +78,13 @@ const theme = createTheme({
         // Smooth scrolling for section jumps, only for visitors who haven't asked for less motion
         '@media (prefers-reduced-motion: no-preference)': {
           html: { scrollBehavior: 'smooth' },
+        },
+        '@media (prefers-reduced-motion: reduce)': {
+          '*, *::before, *::after': {
+            animationDuration: '0.01ms !important',
+            animationIterationCount: '1 !important',
+            transitionDuration: '0.01ms !important',
+          },
         },
         '.mono-font': {
           fontFamily: `${monoFontFamily} !important`,
