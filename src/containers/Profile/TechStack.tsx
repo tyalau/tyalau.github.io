@@ -6,8 +6,8 @@ import Typography from '@mui/material/Typography'
 import ScrollSection from '@/components/ScrollSection'
 import withMotion, { MotionStack, MotionStagger } from '@/components/withMotion'
 import { SECTIONS } from '@/constants'
-import { getTech } from '@/techIcons'
 import { TechStack } from '@/types'
+import { getTech } from './techIcons'
 
 const MotionChip = withMotion(Chip, 'pop')
 
