@@ -122,6 +122,18 @@ const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        icon: {
+          marginLeft: 10,
+          marginRight: -2,
+        },
+        label: {
+          paddingLeft: 10,
+          paddingRight: 12,
+        },
+      },
+    },
     MuiTab: {
       styleOverrides: {
         root: {

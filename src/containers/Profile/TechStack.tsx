@@ -4,9 +4,12 @@ import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import ScrollSection from '@/components/ScrollSection'
-import { MotionStack } from '@/components/withMotion'
+import withMotion, { MotionStack, MotionStagger } from '@/components/withMotion'
 import { SECTIONS } from '@/constants'
+import { getTech } from '@/techIcons'
 import { TechStack } from '@/types'
+
+const MotionChip = withMotion(Chip, 'pop')
 
 type TechStackProps = {
   data: TechStack[]
@@ -19,11 +22,12 @@ export default function TechStackSection({ data }: TechStackProps) {
         {data.map(({ group, items }) => (
           <MotionStack key={group} spacing={1}>
             <Typography variant="h6">{group}</Typography>
-            <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
-              {items.map((item) => (
-                <Chip key={item} label={item} variant="outlined" color="primary" />
-              ))}
-            </Stack>
+            <MotionStagger direction="row" spacing={1} useFlexGap flexWrap="wrap">
+              {items.map((item) => {
+                const { title, icon } = getTech(item)
+                return <MotionChip key={item} label={title} icon={icon} variant="outlined" color="primary" />
+              })}
+            </MotionStagger>
           </MotionStack>
         ))}
       </Stack>
