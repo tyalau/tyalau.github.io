@@ -66,6 +66,7 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        // Pink-to-purple gradient text with a soft purple glow behind the letters (used for the name and section titles)
         '.gradient-text': {
           background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
           WebkitBackgroundClip: 'text',
@@ -74,12 +75,20 @@ const theme = createTheme({
           // text-shadow would show through the transparent fill, so glow the clipped glyphs instead
           filter: `drop-shadow(0 0 8px ${alpha(primaryBase, 0.45)})`,
         },
+        // Smooth scrolling for section jumps, only for visitors who haven't asked for less motion
+        '@media (prefers-reduced-motion: no-preference)': {
+          html: { scrollBehavior: 'smooth' },
+        },
+        '@media (prefers-reduced-motion: reduce)': {
+          '*, *::before, *::after': {
+            animationDuration: '0.01ms !important',
+            animationIterationCount: '1 !important',
+            transitionDuration: '0.01ms !important',
+          },
+        },
         '.mono-font': {
           fontFamily: `${monoFontFamily} !important`,
           lineHeight: 'normal !important',
-        },
-        '.gradient-bg': {
-          background: `linear-gradient(to bottom, ${defaultBackground}, ${darken(defaultBackground, 0.5)})`,
         },
       },
     },
@@ -98,6 +107,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 16,
+          // Glass look for every card: translucent fill + blur of what is behind (fill opacity = the 0.4),
+          // thin purple border (0.25), and on hover the border brightens and a purple glow + pink cursor spotlight appear
           backgroundImage: 'none',
           backgroundColor: alpha(dividerColour, 0.4),
           backdropFilter: 'blur(12px)',
@@ -106,7 +117,20 @@ const theme = createTheme({
           '&:hover': {
             borderColor: alpha(primaryBase, 0.8),
             boxShadow: glow(primaryBase),
+            backgroundImage: `radial-gradient(circle 240px at var(--mx, 50%) var(--my, 50%), ${alpha(secondaryBase, 0.16)}, transparent 70%)`,
           },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        icon: {
+          marginLeft: 10,
+          marginRight: -2,
+        },
+        label: {
+          paddingLeft: 10,
+          paddingRight: 12,
         },
       },
     },
@@ -124,6 +148,7 @@ const theme = createTheme({
             sx: {
               background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
               borderRadius: 10,
+              boxShadow: glow(secondaryBase, 0.5),
             },
           },
         },

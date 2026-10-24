@@ -1,6 +1,6 @@
 'use client'
 
-import Card, { cardClasses } from '@mui/material/Card'
+import { cardClasses } from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
@@ -9,7 +9,9 @@ import Typography from '@mui/material/Typography'
 import { FaCode } from 'react-icons/fa'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import ScrollSection from '@/components/ScrollSection'
-import withMotion from '@/components/withMotion'
+import SpotlightCard from '@/components/SpotlightCard'
+import withMotion, { MotionGrid } from '@/components/withMotion'
+import { SECTIONS } from '@/constants'
 import { Repo } from '@/types'
 import { getLanguageColour } from '@/utils'
 
@@ -17,12 +19,12 @@ type ProjectProps = {
   data: Repo[]
 }
 
-const MotionCard = withMotion(Card)
+const MotionCard = withMotion(SpotlightCard, 'scaleIn')
 
 export default function Project({ data }: ProjectProps) {
   return (
-    <ScrollSection header="Projects">
-      <Grid container spacing={2} mt={2}>
+    <ScrollSection header="Projects" name={SECTIONS.projects}>
+      <MotionGrid container spacing={2} mt={2}>
         {data.map(({ name, description, svn_url, language, homepage }) => {
           return (
             <Grid
@@ -38,7 +40,7 @@ export default function Project({ data }: ProjectProps) {
                 },
               }}
             >
-              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} whileHover={{ y: -4 }}>
+              <MotionCard whileHover={{ y: -4 }}>
                 <CardContent>
                   <Typography variant="h6" component="div">
                     {name}
@@ -75,7 +77,7 @@ export default function Project({ data }: ProjectProps) {
             </Grid>
           )
         })}
-      </Grid>
+      </MotionGrid>
     </ScrollSection>
   )
 }
