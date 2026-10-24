@@ -107,6 +107,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 16,
+          // Glass look for every card: translucent fill + blur of what is behind (fill opacity = the 0.4),
+          // thin purple border (0.25), and on hover the border brightens and a purple glow + pink cursor spotlight appear
           backgroundImage: 'none',
           backgroundColor: alpha(dividerColour, 0.4),
           backdropFilter: 'blur(12px)',
@@ -115,6 +117,7 @@ const theme = createTheme({
           '&:hover': {
             borderColor: alpha(primaryBase, 0.8),
             boxShadow: glow(primaryBase),
+            backgroundImage: `radial-gradient(circle 240px at var(--mx, 50%) var(--my, 50%), ${alpha(secondaryBase, 0.16)}, transparent 70%)`,
           },
         },
       },

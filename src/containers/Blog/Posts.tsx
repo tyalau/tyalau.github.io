@@ -1,6 +1,6 @@
 'use client'
 
-import Card, { cardClasses } from '@mui/material/Card'
+import { cardClasses } from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -15,19 +15,20 @@ import { motion } from 'motion/react'
 import { parse } from 'node-html-parser'
 import { MdPublish, MdRemoveRedEye } from 'react-icons/md'
 import ScrollSection from '@/components/ScrollSection'
-import withMotion from '@/components/withMotion'
+import SpotlightCard from '@/components/SpotlightCard'
+import withMotion, { MotionGrid } from '@/components/withMotion'
 import { SECTIONS } from '@/constants'
 import { Blog } from '@/types'
 import { decodeUnicodeEscapes, formatDate } from '@/utils'
 
-const MotionCard = withMotion(Card)
+const MotionCard = withMotion(SpotlightCard, 'scaleIn')
 const MotionCardMedia = motion.create(CardMedia)
 
 export default function Posts({ data }: { data: Blog[] }) {
   const theme = useTheme()
   return (
     <ScrollSection header="Latest Blog Posts" name={SECTIONS.blogPosts}>
-      <Grid container spacing={2} mt={2}>
+      <MotionGrid container spacing={2} mt={2}>
         {data.slice(0, 4).map(({ title, pubDate, link, description }) => {
           const root = parse(decodeUnicodeEscapes(description))
           const image = root.querySelector('.medium-feed-image img')?.getAttribute('src')
@@ -47,7 +48,7 @@ export default function Posts({ data }: { data: Blog[] }) {
                 },
               }}
             >
-              <MotionCard initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} whileHover={{ y: -4 }}>
+              <MotionCard whileHover={{ y: -4 }}>
                 <div>
                   {image ? (
                     <Link href={link} color="inherit" target="_blank" rel="noopener">
@@ -92,7 +93,7 @@ export default function Posts({ data }: { data: Blog[] }) {
             </Grid>
           )
         })}
-      </Grid>
+      </MotionGrid>
     </ScrollSection>
   )
 }
