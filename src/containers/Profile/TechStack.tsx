@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import ScrollSection from '@/components/ScrollSection'
 import { MotionStack } from '@/components/withMotion'
+import { SECTIONS } from '@/constants'
 import { TechStack } from '@/types'
 
 type TechStackProps = {
@@ -13,7 +14,7 @@ type TechStackProps = {
 
 export default function TechStackSection({ data }: TechStackProps) {
   return (
-    <ScrollSection header="Tech Stack">
+    <ScrollSection header="Tech Stack" name={SECTIONS.techStack}>
       <Stack spacing={2}>
         {data.map(({ group, items }) => (
           <MotionStack key={group} spacing={1}>

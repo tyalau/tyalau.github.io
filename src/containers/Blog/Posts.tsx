@@ -16,6 +16,7 @@ import { parse } from 'node-html-parser'
 import { MdPublish, MdRemoveRedEye } from 'react-icons/md'
 import ScrollSection from '@/components/ScrollSection'
 import withMotion from '@/components/withMotion'
+import { SECTIONS } from '@/constants'
 import { Blog } from '@/types'
 import { decodeUnicodeEscapes, formatDate } from '@/utils'
 
@@ -25,7 +26,7 @@ const MotionCardMedia = motion.create(CardMedia)
 export default function Posts({ data }: { data: Blog[] }) {
   const theme = useTheme()
   return (
-    <ScrollSection header="Latest Blog Posts" name="Blog Posts">
+    <ScrollSection header="Latest Blog Posts" name={SECTIONS.blogPosts}>
       <Grid container spacing={2} mt={2}>
         {data.slice(0, 4).map(({ title, pubDate, link, description }) => {
           const root = parse(decodeUnicodeEscapes(description))

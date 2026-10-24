@@ -74,6 +74,10 @@ const theme = createTheme({
           // text-shadow would show through the transparent fill, so glow the clipped glyphs instead
           filter: `drop-shadow(0 0 8px ${alpha(primaryBase, 0.45)})`,
         },
+        // Smooth scrolling for section jumps, only for visitors who haven't asked for less motion
+        '@media (prefers-reduced-motion: no-preference)': {
+          html: { scrollBehavior: 'smooth' },
+        },
         '.mono-font': {
           fontFamily: `${monoFontFamily} !important`,
           lineHeight: 'normal !important',
@@ -124,6 +128,7 @@ const theme = createTheme({
             sx: {
               background: `linear-gradient(to right, ${secondaryBase}, ${primaryBase})`,
               borderRadius: 10,
+              boxShadow: glow(secondaryBase, 0.5),
             },
           },
         },

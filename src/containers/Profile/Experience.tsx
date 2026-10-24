@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography'
 import { HiLocationMarker, HiOutlineExternalLink } from 'react-icons/hi'
 import ScrollSection from '@/components/ScrollSection'
 import withMotion from '@/components/withMotion'
+import { SECTIONS } from '@/constants'
 import { Experience } from '@/types'
 
 type ExperienceProps = {
@@ -24,7 +25,7 @@ const MotionTimelineItem = withMotion(TimelineItem)
 
 export default function ExperienceSection({ data, slug }: ExperienceProps) {
   return (
-    <ScrollSection header="Experience">
+    <ScrollSection header="Experience" name={SECTIONS.experience}>
       <Timeline>
         {data.map(({ title, company, duration, location, description }, i) => (
           <MotionTimelineItem key={duration}>

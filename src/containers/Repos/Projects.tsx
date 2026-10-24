@@ -10,6 +10,7 @@ import { FaCode } from 'react-icons/fa'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import ScrollSection from '@/components/ScrollSection'
 import withMotion from '@/components/withMotion'
+import { SECTIONS } from '@/constants'
 import { Repo } from '@/types'
 import { getLanguageColour } from '@/utils'
 
@@ -21,7 +22,7 @@ const MotionCard = withMotion(Card)
 
 export default function Project({ data }: ProjectProps) {
   return (
-    <ScrollSection header="Projects">
+    <ScrollSection header="Projects" name={SECTIONS.projects}>
       <Grid container spacing={2} mt={2}>
         {data.map(({ name, description, svn_url, language, homepage }) => {
           return (

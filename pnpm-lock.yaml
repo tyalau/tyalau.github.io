@@ -205,9 +205,6 @@ importers:
       react-icons:
         specifier: ^5.5.0
         version: 5.7.0(react@19.2.6)
-      react-scroll:
-        specifier: ^1.9.3
-        version: 1.9.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
     devDependencies:
       '@commitlint/cli':
         specifier: ^21.0.1
@@ -230,9 +227,6 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.3.0(@types/react@19.3.0)
-      '@types/react-scroll':
-        specifier: ^1.8.10
-        version: 1.8.10
       eslint:
         specifier: ^9.39.4
         version: 9.39.5(jiti@2.7.0)(supports-color@8.1.1)
@@ -2678,9 +2672,6 @@ packages:
     peerDependencies:
       '@types/react': ^19.3.0
 
-  '@types/react-scroll@1.8.10':
-    resolution: {integrity: sha512-RD4Z7grbdNGOKwKnUBKar6zNxqaW3n8m9QSrfvljW+gmkj1GArb8AFBomVr6xMOgHPD3v1uV3BrIf01py57daQ==}
-
   '@types/react-transition-group@4.4.12':
     resolution: {integrity: sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==}
     peerDependencies:
@@ -4616,9 +4607,6 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
-  lodash.throttle@4.1.1:
-    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
-
   lodash@4.18.1:
     resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
@@ -5182,12 +5170,6 @@ packages:
     peerDependencies:
       react: ^19.2
       rxjs: ^7.2
-
-  react-scroll@1.9.3:
-    resolution: {integrity: sha512-xv7FXqF3k63aSLNu4/NjFvRNI0ge7DmmmsbeGarP7LZVAlJMSjUuW3dTtLxp1Afijyv0lS2qwC0GiFHvx1KBHQ==}
-    peerDependencies:
-      react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -9157,10 +9139,6 @@ snapshots:
     dependencies:
       '@types/react': 19.3.0
 
-  '@types/react-scroll@1.8.10':
-    dependencies:
-      '@types/react': 19.3.0
-
   '@types/react-transition-group@4.4.12(@types/react@19.3.0)':
     dependencies:
       '@types/react': 19.3.0
@@ -11194,8 +11172,6 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
-  lodash.throttle@4.1.1: {}
-
   lodash@4.18.1: {}
 
   log-symbols@7.0.1:
@@ -11731,13 +11707,6 @@ snapshots:
     dependencies:
       react: 19.2.6
       rxjs: 7.8.2
-
-  react-scroll@1.9.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
-    dependencies:
-      lodash.throttle: 4.1.1
-      prop-types: 15.8.1
-      react: 19.2.6
-      react-dom: 19.2.6(react@19.2.6)
 
   react-transition-group@4.4.5(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:

@@ -24,6 +24,11 @@ export const getLanguageColour = (language: string): ChipProps['color'] => {
   }
 }
 
+// Smooth or instant is decided by the `scroll-behavior` rule in theme.ts, which respects reduced motion
+export const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ block: 'start' })
+}
+
 export const decodeUnicodeEscapes = (s: string) =>
   s.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
 
