@@ -1,27 +1,65 @@
 'use client'
 
+import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { MotionStack } from '@/components/withMotion'
+import { HiOutlineArrowDown } from 'react-icons/hi'
+import TypingHeadline from '@/components/TypingHeadline'
+import { MotionStack, MotionStagger } from '@/components/withMotion'
+import { SECTIONS } from '@/constants'
 import { Intro } from '@/types'
+import { scrollToSection } from '@/utils'
 
+// Hero, top to bottom: grey mono `// location`, huge gradient name, typing role line, about paragraphs, two buttons.
+// The name size is the clamp() on the h1 (min, scales with screen width, max); minHeight sets how tall the hero is.
+// Each row fades in one after another (MotionStagger)
 export default function IntroSection({ name, headline, location, about }: Intro) {
+  const roles = headline
+    .split('|')
+    .map((role) => role.trim())
+    .filter(Boolean)
+
   return (
-    <MotionStack component="section" alignItems="center" spacing={1} textAlign="center">
-      <Typography variant="h5">Hello World!</Typography>
-      <Typography variant="h3">
-        I&apos;m&nbsp;
-        <Typography component="span" variant="h3" className="gradient-text">
+    <MotionStagger
+      component="section"
+      alignItems="center"
+      justifyContent="center"
+      spacing={2}
+      textAlign="center"
+      sx={{ minHeight: 'min(80svh, 720px)' }}
+    >
+      <MotionStack>
+        <Typography variant="body2" color="text.secondary" className="mono-font">
+          {`// ${location}`}
+        </Typography>
+      </MotionStack>
+      <MotionStack>
+        <Typography
+          component="h1"
+          variant="h1"
+          className="gradient-text"
+          sx={{ fontSize: 'clamp(2.75rem, 10vw, 5.5rem)', fontWeight: 700, lineHeight: 1.05 }}
+        >
           {name}
         </Typography>
-      </Typography>
-      <Typography variant="h6" color="accent.light">
-        {headline} | {location}
-      </Typography>
-      {about.map((item) => (
-        <Typography variant="body1" key={item}>
-          {item}
-        </Typography>
-      ))}
-    </MotionStack>
+      </MotionStack>
+      <MotionStack>
+        <TypingHeadline phrases={roles} />
+      </MotionStack>
+      <MotionStack spacing={1} maxWidth="sm">
+        {about.map((item) => (
+          <Typography variant="body1" key={item}>
+            {item}
+          </Typography>
+        ))}
+      </MotionStack>
+      <MotionStack direction="row" spacing={1}>
+        <Button endIcon={<HiOutlineArrowDown />} onClick={() => scrollToSection(SECTIONS.projects)}>
+          View projects
+        </Button>
+        <Button variant="outlined" onClick={() => scrollToSection(SECTIONS.experience)}>
+          Experience
+        </Button>
+      </MotionStack>
+    </MotionStagger>
   )
 }
