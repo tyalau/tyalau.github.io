@@ -33,12 +33,7 @@ export default function IntroSection({ name, headline, location, about }: Intro)
         </Typography>
       </MotionStack>
       <MotionStack>
-        <Typography
-          component="h1"
-          variant="h1"
-          className="gradient-text"
-          sx={{ fontSize: 'clamp(2.75rem, 10vw, 5.5rem)', fontWeight: 700, lineHeight: 1.05 }}
-        >
+        <Typography component="h1" variant="h1" className="gradient-text">
           {name}
         </Typography>
       </MotionStack>
