@@ -218,7 +218,12 @@ const theme = createTheme({
   typography: {
     fontFamily: inter.style.fontFamily,
     fontSize: 15,
-    h1: { fontFamily: displayFontFamily },
+    h1: {
+      fontFamily: displayFontFamily,
+      fontWeight: 700,
+      fontSize: 'clamp(2.75rem, 10vw, 5.5rem)',
+      lineHeight: 1.05,
+    },
     h2: { fontFamily: displayFontFamily },
     h3: { fontFamily: displayFontFamily },
     h4: { fontFamily: displayFontFamily },
